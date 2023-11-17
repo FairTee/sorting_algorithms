@@ -6,7 +6,7 @@ void sort_by_value(deck_node_t **deck);
 void exch(deck_node_t **deck, deck_node_t *card1, deck_node_t *card2);
 int cmp_vals(const card_t *card1, const card_t *card2);
 /**
- * deck_sort - sorts a 52 card deck
+ * sort_deck - sorts a 52 card deck
  * @deck: deck to sort
  *
  * Return: Always 0 (ok)
