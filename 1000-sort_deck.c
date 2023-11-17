@@ -16,9 +16,9 @@ int compare_cards(const void *card1, const void *card2)
 	const card_t *c2 = *(const card_t **)card2;
 
 	if (c1->kind != c2->kind)
-		return c1->kind - c2->kind;
+		return (c1->kind - c2->kind);
 
-	return strcmp(c1->value, c2->value);
+	return (strcmp(c1->value, c2->value));
 }
 
 /**
