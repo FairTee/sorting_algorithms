@@ -24,12 +24,12 @@ void swapper(int *array, ssize_t item1, ssize_t item2)
  */
 int lomuto_partition(int *array, ssize_t first, ssize_t last, size_t size)
 {
-	int pivot = array[last];
+	int piv = array[last];
 	ssize_t current = first, finder;
 
 	for (finder = first; finder < last; finder++)
 	{
-		if (array[finder] < pivot)
+		if (array[finder] < piv)
 		{
 			if (array[current] != array[finder])
 			{
@@ -55,15 +55,15 @@ int lomuto_partition(int *array, ssize_t first, ssize_t last, size_t size)
  */
 void quisor(int *array, ssize_t first, ssize_t last, int size)
 {
- 	ssize_t position = 0;
+	ssize_t posi = 0;
 
 
 	if (first < last)
 	{
-		position = lomuto_partition(array, first, last, size);
+		posi = lomuto_partition(array, first, last, size);
 
-		quisor(array, first, position - 1, size);
-		quisor(array, position + 1, last, size);
+		quisor(array, first, posi - 1, size);
+		quisor(array, posi + 1, last, size);
 	}
 }
 /**
