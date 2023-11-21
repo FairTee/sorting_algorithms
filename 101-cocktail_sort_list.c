@@ -24,42 +24,43 @@ listint_t *swap_node(listint_t *node, listint_t **list)
 }
 /**
  *cocktail_sort_list - this is a cocktail sort implementation
+ *working on a double linked lists
  *@list: list
  */
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *node;
-	int swapped = 1;
+	listint_t *nodes;
+	int swap_done = 1;
 
-	if (list == '\0' || (*list) == '\0' || (*list)->next == '\0')
+	if (list == NULL || (*list) == NULL || (*list)->next == NULL)
 		return;
-	node = *list;
-	while (swapped == 1)
+	nodes = *list;
+	while (swap_done == 1)
 	{
-		swapped = 0;
-		while (node->next)
+		swap_done = 0;
+		while (nodes->next)
 		{
-			if (node->n > node->next->n)
+			if (nodes->n > nodes->next->n)
 			{
-				node = swapped(node->next, list);
-				swapped = 1;
+				nodes = swap_node(nodes->next, list);
+				swap_done = 1;
 				print_list(*list);
 			}
-			node = node->next;
+			nodes = nodes->next;
 		}
-		if (swapped == 0)
+		if (swap_done == 0)
 			break;
-		swapped = 0;
-		while (node->prev)
+		swap_done = 0;
+		while (nodes->prev)
 		{
-			if (node->n < node->prev->n)
+			if (nodes->n < nodes->prev->n)
 			{
-				node = swapped(node, list);
-				swapped = 1;
+				nodes = swap_node(nodes, list);
+				swap_done = 1;
 				print_list(*list);
 			}
 			else
-				node = node->prev;
+				nodes = nodes->prev;
 		}
 	}
 }
